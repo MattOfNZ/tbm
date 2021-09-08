@@ -1,0 +1,10 @@
+{
+  auto_https disable_redirects
+}
+
+:__TBM_PORT__ {
+    basicauth /* {
+        __TBM_USERNAME__ __TBM_PASSWORD_HASH__
+    }
+    reverse_proxy __TBM_ORIGIN__
+}
