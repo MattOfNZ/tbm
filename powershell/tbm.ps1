@@ -4,10 +4,6 @@ Write-Output $tbm
 $wc = New-Object System.Net.WebClient;
 $wc.Headers.Add("user-agent", $tbm)
 
-if ((Get-Module ThreadJob -list | Measure-Object -Line).Lines -eq 0) {
-    Install-Module -Name ThreadJob -RequiredVersion 2.0.0
-}
-
 if (![System.IO.File]::Exists("$pwd\caddy.exe")) {
     Write-Output "Downloading Caddy"
     $wc.DownloadFile("https://caddyserver.com/api/download?os=windows&arch=amd64", "$pwd\caddy.exe")
