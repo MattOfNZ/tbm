@@ -16,6 +16,12 @@ if (![System.IO.File]::Exists("$pwd\cloudflared.exe")) {
     $wc.DownloadFile("$($cloudflared.browser_download_url)", "$pwd\cloudflared.exe")
 }
 
+
+if (![System.IO.File]::Exists("$pwd\Caddyfile.template")) {
+    Write-Output "Downloading Caddyfile template"
+    $wc.DownloadFile("https://raw.githubusercontent.com/MattOfNZ/tbm/main/powershell/Caddyfile.template", "$pwd\Caddyfile.template")
+}
+
 $TBM_ORIGIN = Read-Host -Prompt 'Origin server'
 
 $TBM_YES_NO  = '&yes', '&no'
